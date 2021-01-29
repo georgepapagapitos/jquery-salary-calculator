@@ -1,3 +1,13 @@
 body {
-  background: coral;
+  margin: 0;
+  padding: 0;
+  background: white;
+}
+
+header {
+  padding: 10px;
+  text-align: center;
+  background: #6b6b6b;
+  color: white;
+  font-family: sans-serif;
 }
