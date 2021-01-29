@@ -2,6 +2,7 @@ body {
   margin: 0;
   padding: 0;
   background: white;
+  text-align: center;
 }
 
 header {
@@ -9,6 +10,10 @@ header {
   text-align: center;
   background: #6b6b6b;
   color: white;
+}
+
+h2 {
+  margin-left: 10px;
 }
 
 table {
@@ -34,4 +39,9 @@ table thead th {
 
 form {
   margin-left: 10px;
+}
+
+table.center {
+  margin-left: auto;
+  margin-right: auto;
 }

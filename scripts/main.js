@@ -1,12 +1,11 @@
-console.log('js');
-
 $(onReady);
 
 const employees = [];
 
 function onReady() {
-  console.log('jq');
   $(document).on('click', '#submit-button', onSubmit);
+  $(document).on('click', '.delete-button', deleteMe);
+  monthlyTotal();
 }
 
 function onSubmit(event) {
@@ -20,12 +19,14 @@ function onSubmit(event) {
   };
 
   employees.push(employee);
-  displayEmployees(employees);
+  displayEmployees();
+  monthlyTotal();
   $('input').val('');
 }
 
-function displayEmployees(array) {
-  for (let employee of array) {
+function displayEmployees() {
+  $('#employee-table').empty();
+  for (let employee of employees) {
     $('#employee-table').append(`
     <tr>
       <td>${employee.firstName}</td>
@@ -41,4 +42,16 @@ function displayEmployees(array) {
   </tr>
   `);
   }
+}
+
+function monthlyTotal() {
+  let total = 0;
+  for (let i = 0; i < employees.length; i++) {
+    total += employees[i].annualSalary;
+  }
+  $('#monthly-total').text(total);
+}
+
+function deleteMe() {
+  $(this).closest('tr').remove();
 }

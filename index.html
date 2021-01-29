@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="styles.css" />
-    <script src="./scripts/jsquery.js"></script>
+    <script src="./scripts/jquery.js"></script>
     <script src="./scripts/main.js"></script>
     <title>Salary Calculator</title>
   </head>
@@ -21,7 +21,7 @@
       <input type="number" placeholder="Annual Salary" id="salary-input" />
       <button type="submit" value="submit" id="submit-button">Submit</button>
     </form>
-    <table>
+    <table class="center">
       <h2>Employees</h2>
       <thead>
         <tr>
@@ -35,6 +35,8 @@
       </thead>
       <tbody id="employee-table"></tbody>
     </table>
-    <h2>Total Monthly: $<span id="monthly-total"></span></h2>
+    <tfoot>
+      <h2 id="total">Total Monthly: $<span id="monthly-total"></span></h2>
+    </tfoot>
   </body>
 </html>
