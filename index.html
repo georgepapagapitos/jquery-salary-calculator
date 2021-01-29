@@ -12,9 +12,8 @@
     <header>
       <h1>Salary Calculator</h1>
     </header>
-
-    <h2>Add Employee</h2>
     <form>
+      <h2>Add Employee</h2>
       <input type="text" placeholder="First Name" id="first-name-input" />
       <input type="text" placeholder="Last Name" id="last-name-input" />
       <input type="number" placeholder="ID" id="id-input" />
@@ -22,5 +21,37 @@
       <input type="number" placeholder="Annual Salary" id="salary-input" />
       <button type="submit">Submit</button>
     </form>
+    <table>
+      <h2>Employees</h2>
+      <thead>
+        <tr>
+          <th>First Name</th>
+          <th>Last</th>
+          <th>ID</th>
+          <th>Title</th>
+          <th>Annual Salary</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody id="inventoryTable">
+        <tr>
+          <td>John</td>
+          <td>Doe</td>
+          <td>1234</td>
+          <td>Dr. President</td>
+          <td>$100,000,000</td>
+          <td><button>Delete</button></td>
+        </tr>
+        <tr>
+          <td>John</td>
+          <td>Doe</td>
+          <td>1234</td>
+          <td>Dr. President</td>
+          <td>$100,000,000</td>
+          <td><button>Delete</button></td>
+        </tr>
+      </tbody>
+    </table>
+    <h2>Total Monthly: $<span id="monthly-total"></span></h2>
   </body>
 </html>
