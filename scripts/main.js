@@ -6,10 +6,12 @@ function onReady() {
   $(document).on('click', '#submit-button', onSubmit);
   $(document).on('click', '.delete-button', deleteMe);
   monthlyTotal();
+  deleteMe();
 }
 
 function onSubmit(event) {
   event.preventDefault();
+  $('#employee-table').empty();
   const employee = {
     firstName: $('#first-name-input').val(),
     lastName: $('#last-name-input').val(),
@@ -25,7 +27,6 @@ function onSubmit(event) {
 }
 
 function displayEmployees() {
-  $('#employee-table').empty();
   for (let employee of employees) {
     $('#employee-table').append(`
     <tr>
@@ -33,7 +34,7 @@ function displayEmployees() {
       <td>${employee.lastName}</td>
       <td>${employee.id}</td>
       <td>${employee.title}</td>
-      <td>$${employee.annualSalary}</td>
+      <td id="emp-salary">$${employee.annualSalary}</td>
       <td>
       <button type="button" class="delete-button">
         Delete
