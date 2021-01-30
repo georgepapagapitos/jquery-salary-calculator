@@ -55,13 +55,10 @@ table.center {
 }
 
 .too-much-money {
-  background: red;
-}
-
-.too-much-money {
   animation: blinker 1s infinite;
 }
 
+/* Copy and paste from https://stackoverflow.com/questions/34439452/blinking-background-color-animation */
 @-webkit-keyframes blinker {
   0%,
   49% {
@@ -73,4 +70,36 @@ table.center {
     background-color: red;
     border: 3px solid yellow;
   }
+}
+
+/* Copy and paste from https://stackoverflow.com/questions/17042201/how-to-style-input-and-submit-button-with-css */
+input[type='text'] {
+  padding: 5px;
+  border: 2px solid #ccc;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+}
+
+input[type='text']:focus {
+  border-color: #333;
+}
+
+input[type='number'] {
+  padding: 5px;
+  border: 2px solid #ccc;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+}
+
+input[type='number']:focus {
+  border-color: #333;
+}
+
+input[type='submit'] {
+  padding: 5px 15px;
+  background: #ccc;
+  border: 0 none;
+  cursor: pointer;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
 }
