@@ -34,8 +34,12 @@ function onSubmit(event) {
   $('input').val('');
 }
 
+// Function that displays the current employee data as a table
+// Called within the onSubmit function
 function displayEmployeeData() {
+  // Loop through array of employees
   for (let employee of employees) {
+    // Append each employee object as a row in the table with a delete button in the last column
     $('#employee-table').append(`
     <tr>
       <td class='first-name'>${employee.firstName}</td>
@@ -53,19 +57,24 @@ function displayEmployeeData() {
   }
 }
 
+// Function that deletes the employee from the table as well as from the global employees array
 function deleteMe() {
+  // Find the current row of the clicked delete button
   let currentRow = $(this).closest('tr');
-  if (
-    confirm(
-      `Are you sure you want to delete ${currentRow
-        .find('.first-name')
-        .text()}?`
-    )
-  ) {
-    let salaryColumn = Number(currentRow.find('.salary').children().text());
-    monthlyTotal -= salaryColumn;
+  // Extract the first name and the last name of the employee who's row is being deleted
+  let firstName = currentRow.find('.first-name').text();
+  let lastName = currentRow.find('.last-name').text();
+  // Display an alert that asks user for confirmation of deletion
+  if (confirm(`Are you sure you want to delete ${firstName} ${lastName}?`)) {
+    // Find the salary of the employee who's row is being deleted
+    let employeeSalary = Number(currentRow.find('.salary').children().text());
+    // Subtract their salary from the global monthlyTotal variable
+    monthlyTotal -= employeeSalary;
+    // Update the monthly total amount on the DOM
     $('#monthly-total').text(monthlyTotal);
+    // Remove the deleted from the global employees array
     employees.splice(currentRow.index(), 1);
+    // Remove the employee from the table
     currentRow.remove();
   }
   return false;
