@@ -30,6 +30,7 @@ function onSubmit(event) {
   // Calculate, update, and display the monthly total
   monthlyTotal += employee.annualSalary;
   $('#monthly-total').text(monthlyTotal);
+  checkMonthlyTotal();
   // Clear inputs
   $('input').val('');
 }
@@ -72,10 +73,19 @@ function deleteMe() {
     monthlyTotal -= employeeSalary;
     // Update the monthly total amount on the DOM
     $('#monthly-total').text(monthlyTotal);
+    checkMonthlyTotal();
     // Remove the deleted from the global employees array
     employees.splice(currentRow.index(), 1);
     // Remove the employee from the table
     currentRow.remove();
   }
   return false;
+}
+
+function checkMonthlyTotal() {
+  if (monthlyTotal > 20000) {
+    $('#monthly-total').parent().addClass('too-much-money');
+  } else {
+    $('#monthly-total').parent().removeClass('too-much-money');
+  }
 }

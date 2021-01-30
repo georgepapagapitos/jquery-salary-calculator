@@ -13,6 +13,16 @@ header {
   font-size: 40px;
 }
 
+.form-container {
+  display: inline-block;
+  text-align: left;
+  padding: 5px;
+}
+
+.table-container {
+  padding: 5px;
+}
+
 table {
   border-collapse: collapse;
   border: 1px solid black;
@@ -37,4 +47,30 @@ table thead th {
 table.center {
   margin-left: auto;
   margin-right: auto;
+}
+
+#total {
+  display: inline-block;
+  padding: 5px;
+}
+
+.too-much-money {
+  background: red;
+}
+
+.too-much-money {
+  animation: blinker 1s infinite;
+}
+
+@-webkit-keyframes blinker {
+  0%,
+  49% {
+    background-color: yellow;
+    border: 3px solid red;
+  }
+  50%,
+  100% {
+    background-color: red;
+    border: 3px solid yellow;
+  }
 }
