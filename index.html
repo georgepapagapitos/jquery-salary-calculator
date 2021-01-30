@@ -12,51 +12,60 @@
     <header>
       <h1>Salary Calculator</h1>
     </header>
-    <h2>Add Employee</h2>
 
-    <form id="input-form">
-      <!-- First Name Input -->
-      <input
-        name="first-name"
-        type="text"
-        placeholder="First Name"
-        id="first-name-input"
-        required
-      />
-      <!-- Last Name Input -->
-      <input
-        name="last-name"
-        type="text"
-        placeholder="Last Name"
-        id="last-name-input"
-        required
-      />
-      <!-- ID Number Input -->
-      <input name="id" type="number" placeholder="ID" id="id-input" required />
-      <!-- Title Input -->
-      <input
-        name="title"
-        type="text"
-        placeholder="Title"
-        id="title-input"
-        required
-      />
-      <!-- Annual Salary Input -->
-      <input
-        name="annual-salary"
-        type="number"
-        placeholder="Annual Salary"
-        id="salary-input"
-        required
-      />
-      <!-- Submit Button -->
-      <button name="submit" type="submit" value="submit" id="submit-button">
-        Submit
-      </button>
-    </form>
+    <!-- Input Form -->
+    <div class="form-container">
+      <form id="input-form">
+        <h2>Add Employee</h2>
+        <!-- First Name Input -->
+        <input
+          name="first-name"
+          type="text"
+          placeholder="First Name"
+          id="first-name-input"
+          required
+        />
+        <!-- Last Name Input -->
+        <input
+          name="last-name"
+          type="text"
+          placeholder="Last Name"
+          id="last-name-input"
+          required
+        />
+        <!-- ID Number Input -->
+        <input
+          name="id"
+          type="number"
+          placeholder="ID"
+          id="id-input"
+          required
+        />
+        <!-- Title Input -->
+        <input
+          name="title"
+          type="text"
+          placeholder="Title"
+          id="title-input"
+          required
+        />
+        <!-- Annual Salary Input -->
+        <input
+          name="annual-salary"
+          type="number"
+          placeholder="Annual Salary"
+          id="salary-input"
+          required
+        />
+        <!-- Submit Button -->
+        <button name="submit" type="submit" value="submit" id="submit-button">
+          Submit
+        </button>
+      </form>
+    </div>
 
     <!-- Employee Table -->
-    <div class="container">
+    <div class="table-container">
       <table class="table center">
         <h2>Employees</h2>
         <thead>
