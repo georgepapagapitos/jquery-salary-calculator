@@ -1,12 +1,11 @@
 $(onReady);
 
 const employees = [];
+let total = 0;
 
 function onReady() {
   $(document).on('click', '#submit-button', onSubmit);
   $(document).on('click', '.delete-button', deleteMe);
-  monthlyTotal();
-  deleteMe();
 }
 
 function onSubmit(event) {
@@ -21,12 +20,13 @@ function onSubmit(event) {
   };
 
   employees.push(employee);
-  displayEmployees();
-  monthlyTotal();
+  displayEmployeeData();
+  total += employee.annualSalary;
+  $('#monthly-total').text(total);
   $('input').val('');
 }
 
-function displayEmployees() {
+function displayEmployeeData() {
   for (let employee of employees) {
     $('#employee-table').append(`
     <tr>
@@ -34,7 +34,7 @@ function displayEmployees() {
       <td>${employee.lastName}</td>
       <td>${employee.id}</td>
       <td>${employee.title}</td>
-      <td id="emp-salary">$${employee.annualSalary}</td>
+      <td>$<span>${employee.annualSalary}</span></td>
       <td>
       <button type="button" class="delete-button">
         Delete
@@ -45,14 +45,11 @@ function displayEmployees() {
   }
 }
 
-function monthlyTotal() {
-  let total = 0;
-  for (let i = 0; i < employees.length; i++) {
-    total += employees[i].annualSalary;
-  }
-  $('#monthly-total').text(total);
-}
-
 function deleteMe() {
-  $(this).closest('tr').remove();
+  let currentRow = $(this).closest('tr');
+  let salaryColumn = Number(currentRow.find('td:eq(4)').children().text());
+  total -= salaryColumn;
+  $('#monthly-total').text(total);
+  employees.splice(currentRow.index(), 1);
+  currentRow.remove();
 }
