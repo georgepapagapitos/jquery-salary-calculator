@@ -10,8 +10,8 @@ Additionally, there is a running total of the monthly cost that is displayed on 
 
 ## Screen Shots
 
-![Empty](\img\jquery-salary-calculator.png)
-![Full](\img\jquery-salary-calculator-data.png)
+![Empty](/jquery-salary-calculator.png)
+![Full](/jquery-salary-calculator-data.png)
 
 ## Usage
 
