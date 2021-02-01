@@ -5,13 +5,13 @@
 Duration: 2 Days
 
 The goal was to allow the user to input data and then display that data in a table.
-The table would itself would be updated upon each entry and would allow the user to delete a specific employee.
+The table itself would be updated upon each entry and would allow the user to delete a specific employee.
 Additionally, there is a running total of the monthly cost that is displayed on the bottom that will change to a blinking red if the monthly total is over 20,000
 
 ## Screen Shots
 
-![Empty](.\img\jquery-salary-calculator.png)
-![Full](.\img\jquery-salary-calculator-data.png)
+![Empty](\img\jquery-salary-calculator.png)
+![Full](\img\jquery-salary-calculator-data.png)
 
 ## Usage
 
