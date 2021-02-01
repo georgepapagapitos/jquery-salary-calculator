@@ -2,7 +2,8 @@ $(onReady);
 
 // Initialize a global employee array
 const employees = [];
-// Initialize a global monthlyTotal variable
+// Initialize global variables for the monthly and annual total cost
+let annualTotal = 0;
 let monthlyTotal = 0;
 
 function onReady() {
@@ -27,8 +28,10 @@ function onSubmit(event) {
   employees.push(employee);
   // Call the displayEmployeeData function to display the data as a table
   displayEmployeeData();
-  // Calculate, update, and display the monthly total
-  monthlyTotal += employee.annualSalary;
+  // Calculate the total annual salaries and divide by 12 to get the monthly cost
+  annualTotal += employee.annualSalary;
+  monthlyTotal = annualTotal / 12;
+  console.log(monthlyTotal);
   $('#monthly-total').text(monthlyTotal);
   checkMonthlyTotal();
   // Clear inputs
@@ -69,8 +72,9 @@ function deleteMe() {
   if (confirm(`Are you sure you want to delete ${firstName} ${lastName}?`)) {
     // Find the salary of the employee who's row is being deleted
     let employeeSalary = Number(currentRow.find('.salary').children().text());
-    // Subtract their salary from the global monthlyTotal variable
-    monthlyTotal -= employeeSalary;
+    // Calculate the adjusted annual salaries and divide by 12 to get the monthly cost
+    annualTotal -= employeeSalary;
+    monthlyTotal = annualTotal / 12;
     // Update the monthly total amount on the DOM
     $('#monthly-total').text(monthlyTotal);
     checkMonthlyTotal();
