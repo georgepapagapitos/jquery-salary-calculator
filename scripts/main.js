@@ -60,7 +60,7 @@ function displayEmployeeData() {
 
 // Function that deletes the employee from the table as well as from the global employees array
 function deleteMe() {
-  // Find the current row of the clicked delete button
+  // Find the current row of the delete button that was clicked
   let currentRow = $(this).closest('tr');
   // Extract the first name and the last name of the employee who's row is being deleted
   let firstName = currentRow.find('.first-name').text();
