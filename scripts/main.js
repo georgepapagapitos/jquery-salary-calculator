@@ -30,8 +30,7 @@ function onSubmit(event) {
   displayEmployeeData();
   // Calculate the total annual salaries and divide by 12 to get the monthly cost
   annualTotal += employee.annualSalary;
-  monthlyTotal = annualTotal / 12;
-  console.log(monthlyTotal);
+  monthlyTotal = Math.round(annualTotal / 12);
   $('#monthly-total').text(monthlyTotal);
   checkMonthlyTotal();
   // Clear inputs
@@ -74,7 +73,7 @@ function deleteMe() {
     let employeeSalary = Number(currentRow.find('.salary').children().text());
     // Calculate the adjusted annual salaries and divide by 12 to get the monthly cost
     annualTotal -= employeeSalary;
-    monthlyTotal = annualTotal / 12;
+    monthlyTotal = Math.round(annualTotal / 12);
     // Update the monthly total amount on the DOM
     $('#monthly-total').text(monthlyTotal);
     checkMonthlyTotal();
