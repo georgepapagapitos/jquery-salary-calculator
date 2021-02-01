@@ -5,9 +5,11 @@ const employees = [];
 // Initialize global variables for the monthly and annual total cost
 let annualTotal = 0;
 let monthlyTotal = 0;
+// Set monthly budget variable
+const monthlyBudget = 20000;
 
 function onReady() {
-  $(document).on('click', '#submit-button', onSubmit);
+  $(document).on('submit', '#input-form', onSubmit);
   $(document).on('click', '.delete-button', deleteMe);
 }
 
@@ -26,12 +28,12 @@ function onSubmit(event) {
   };
   // Push employee object to employees array
   employees.push(employee);
-  // Call the displayEmployeeData function to display the data as a table
+  // Call the displayEmployeeData function to display the employee
   displayEmployeeData();
   // Calculate the total annual salaries and divide by 12 to get the monthly cost
   annualTotal += employee.annualSalary;
-  monthlyTotal = Math.round(annualTotal / 12);
-  $('#monthly-total').text(monthlyTotal);
+  monthlyTotal = annualTotal / 12;
+  $('#monthly-total').text(monthlyTotal.toFixed(2));
   checkMonthlyTotal();
   // Clear inputs
   $('input').val('');
@@ -49,7 +51,7 @@ function displayEmployeeData() {
       <td class='last-name'>${employee.lastName}</td>
       <td>${employee.id}</td>
       <td>${employee.title}</td>
-      <td class="salary">$<span>${employee.annualSalary}</span></td>
+      <td>$<span class="annual-salary">${employee.annualSalary}</span></td>
       <td>
       <button type="button" class="delete-button">
         Delete
@@ -60,7 +62,7 @@ function displayEmployeeData() {
   }
 }
 
-// Function that deletes the employee from the table as well as from the global employees array
+// Function that deletes the employee from the table and the global employees array
 function deleteMe() {
   // Find the current row of the delete button that was clicked
   let currentRow = $(this).closest('tr');
@@ -70,14 +72,14 @@ function deleteMe() {
   // Display an alert that asks user for confirmation of deletion
   if (confirm(`Are you sure you want to delete ${firstName} ${lastName}?`)) {
     // Find the salary of the employee who's row is being deleted
-    let employeeSalary = Number(currentRow.find('.salary').children().text());
+    let employeeSalary = Number(currentRow.find('.salary').text());
     // Calculate the adjusted annual salaries and divide by 12 to get the monthly cost
     annualTotal -= employeeSalary;
-    monthlyTotal = Math.round(annualTotal / 12);
+    monthlyTotal = annualTotal / 12;
     // Update the monthly total amount on the DOM
-    $('#monthly-total').text(monthlyTotal);
+    $('#monthly-total').text(monthlyTotal.toFixed(2));
     checkMonthlyTotal();
-    // Remove the deleted from the global employees array
+    // Remove the deleted employee from the global employees array
     employees.splice(currentRow.index(), 1);
     // Remove the employee from the table
     currentRow.remove();
@@ -86,9 +88,9 @@ function deleteMe() {
 }
 
 function checkMonthlyTotal() {
-  if (monthlyTotal > 20000) {
-    $('#monthly-total').parent().addClass('too-much-money');
+  if (monthlyTotal > monthlyBudget) {
+    $('#total').addClass('too-much-money');
   } else {
-    $('#monthly-total').parent().removeClass('too-much-money');
+    $('#total').removeClass('too-much-money');
   }
 }

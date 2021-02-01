@@ -16,7 +16,6 @@ header {
 
 .form-container {
   display: inline-block;
-  text-align: left;
   padding: 5px;
 }
 
@@ -51,8 +50,8 @@ table.center {
 }
 
 #total {
-  display: inline-block;
   padding: 5px;
+  display: inline-block;
 }
 
 .too-much-money {
