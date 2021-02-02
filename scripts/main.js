@@ -72,7 +72,7 @@ function deleteMe() {
   // Display an alert that asks user for confirmation of deletion
   if (confirm(`Are you sure you want to delete ${firstName} ${lastName}?`)) {
     // Find the salary of the employee who's row is being deleted
-    let employeeSalary = Number(currentRow.find('.salary').text());
+    let employeeSalary = Number(currentRow.find('.annual-salary').text());
     // Calculate the adjusted annual salaries and divide by 12 to get the monthly cost
     annualTotal -= employeeSalary;
     monthlyTotal = annualTotal / 12;
